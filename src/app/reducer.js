@@ -1,6 +1,7 @@
 import { theme } from 'app/theme';
 
 export const initialState = {
+  menuOpen: false,
   currentTheme: theme.dark,
 };
 
@@ -15,6 +16,8 @@ export function reducer(state, action) {
       window.localStorage.setItem('theme', JSON.stringify(newThemeKey));
       return { ...state, currentTheme: theme[newThemeKey] };
     }
+    case 'toggleMenu':
+      return { ...state, menuOpen: !state.menuOpen };
     default:
       throw new Error();
   }

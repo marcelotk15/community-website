@@ -5,6 +5,7 @@ import { Transition, TransitionGroup, config as transitionConfig } from 'react-t
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { theme } from 'app/theme';
 import { useLocalStorage, usePrefersReducedMotion } from 'hooks';
+import Header from 'components/Header';
 import GothamBook from 'assets/fonts/gotham-book.woff2';
 import GothamMedium from 'assets/fonts/gotham-medium.woff2';
 import { initialState, reducer } from 'app/reducer';
@@ -68,6 +69,7 @@ function App() {
                 </Helmet>
                 <GlobalStyles />
                 <SkipToMain href="#MainContent">Skip to main content</SkipToMain>
+                <Header location={location} />
                 <TransitionGroup
                   component={AppMainContent}
                   tabIndex={-1}

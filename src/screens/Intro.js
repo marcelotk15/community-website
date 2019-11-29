@@ -11,7 +11,7 @@ import prerender from 'utils/prerender';
 function Intro(props) {
   const { id, sectionRef, scrollIndicatorHidden, ...rest } = props;
   const theme = useTheme();
-  const windowSize = useWindowSize();
+  const { width } = useWindowSize();
   const titleId = `${id}-title`;
 
   return (
@@ -58,13 +58,13 @@ function Intro(props) {
                 </IntroTitleRow>
               </IntroTitle>
             </IntroText>
-            {windowSize.width > theme.tablet &&
+            {width > theme.tablet &&
               <MemoizedScrollIndicator
                 isHidden={scrollIndicatorHidden}
                 status={status}
               />
             }
-            {windowSize.width <= theme.tablet &&
+            {width <= theme.tablet &&
               <MemoizedMobileScrollIndicator
                 isHidden={scrollIndicatorHidden}
                 status={status}
