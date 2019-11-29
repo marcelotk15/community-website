@@ -1,8 +1,36 @@
-import { keyframes } from 'styled-components/macro';
+import { keyframes, css } from 'styled-components/macro';
 
 export const AnimFade = keyframes`
   0% {opacity: 0}
   100% {opacity: 1}
+`;
+
+export const sectionPadding = css`
+  padding-right: 120px;
+  padding-left: 200px;
+
+  @media (min-width: ${props => props.theme.desktop}px) {
+    padding-left: 120px;
+  }
+
+  @media (max-width: ${props => props.theme.tablet}px) {
+    padding-left: 160px;
+  }
+
+  @media (max-width: ${props => props.theme.mobile}px) {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+
+  @media (max-width: ${props => props.theme.mobile}px), (max-height: ${props => props.theme.mobile}px) {
+    padding-left: ${props => props.theme.spacingOuter.mobile}px;
+    padding-right: ${props => props.theme.spacingOuter.mobile}px;
+  }
+
+  @media ${props => props.theme.mobileLS} {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 `;
 
 function stringToRgba(colorString) {

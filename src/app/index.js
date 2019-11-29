@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, createContext, useReducer } from 'react';
+import React, { lazy, Suspense, useEffect, createContext, useReducer } from 'react';
 import styled, { createGlobalStyle, ThemeProvider, css } from 'styled-components/macro';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Transition, TransitionGroup, config as transitionConfig } from 'react-transition-group';
@@ -9,6 +9,8 @@ import GothamBook from 'assets/fonts/gotham-book.woff2';
 import GothamMedium from 'assets/fonts/gotham-medium.woff2';
 import { initialState, reducer } from 'app/reducer';
 import { reflow } from 'utils/transition';
+
+const Home = lazy(() => import('screens/Home'));
 
 export const AppContext = createContext();
 export const TransitionContext = createContext();
@@ -82,7 +84,7 @@ function App() {
                         <AppPage status={status} >
                           <Suspense fallback={<React.Fragment />}>
                             <Switch location={location}>
-                              <Route render={() => <p>Screen Placeholder</p>} />
+                              <Route component={Home} />
                             </Switch>
                           </Suspense>
                         </AppPage>
