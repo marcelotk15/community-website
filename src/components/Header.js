@@ -49,7 +49,7 @@ function Header(props) {
     <HeaderWrapper role="banner" ref={headerRef}>
       <HeaderLogo
         to={{ pathname: '/', hash: '#intro', state: hashKey }}
-        aria-label="Cody Bennett, Designer & Developer"
+        aria-label="Official Shadow Discord"
         onClick={handleMobileNavClick}
       >
         <Monogram highlight />
