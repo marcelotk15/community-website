@@ -1,7 +1,7 @@
 # Death's Shadow Community Website
 The website of the Death's Shadow Discord strategy server.
 
-[![Site preview](/public/social-image.png)](https://mtg.codyb.co)
+[![Site preview](/public/social-image.png)](https://shadow.codyb.co)
 
 ## Install & run
 

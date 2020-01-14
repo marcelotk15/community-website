@@ -62,7 +62,7 @@ function App() {
             <Route render={({ location }) => (
               <React.Fragment>
                 <Helmet>
-                  <link rel="canonical" href={`https://mtg.codyb.co${location.pathname}`} />
+                  <link rel="canonical" href={`https://shadow.codyb.co${location.pathname}`} />
                   <link rel="preload" href={GothamBook} as="font" crossorigin="" />
                   <link rel="preload" href={GothamMedium} as="font" crossorigin="" />
                   <style>{fontStyles}</style>
