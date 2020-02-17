@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled, { css, keyframes, useTheme } from 'styled-components/macro';
 import { Transition } from 'react-transition-group';
 import { AnimFade, rgba, sectionPadding } from 'utils/style';
@@ -30,7 +30,7 @@ function Intro(props) {
         onEnter={reflow}
       >
         {status => (
-          <React.Fragment>
+          <Fragment>
             <IntroText>
               <IntroName status={status} id={titleId}>
                 <DecoderText text="Official" start={!prerender} offset={120} />
@@ -72,7 +72,7 @@ function Intro(props) {
                 <Svg icon="arrowDown" />
               </MemoizedMobileScrollIndicator>
             }
-          </React.Fragment>
+          </Fragment>
         )}
       </Transition>
     </IntroContent>
