@@ -102,8 +102,8 @@ export default function Home(props) {
   return (
     <Fragment>
       <Helmet
-        title="Death's Shadow Community"
-        meta={[{ name: 'description', content: "The website of the Death's Shadow Discord strategy server." }]}
+        title="Death's Shadow Discord"
+        meta={[{ name: 'description', content: "The Death's Shadow strategy Discord server." }]}
       />
       <Intro
         id="intro"
