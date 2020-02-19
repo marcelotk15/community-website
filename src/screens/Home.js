@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Intro from 'screens/Intro';
 import { usePrefersReducedMotion, useRouteTransition } from 'hooks';
 
 export default function Home(props) {
   const { status } = useRouteTransition();
-  const { location } = props;
-  const { hash, state } = location;
+  const { hash, state } = useLocation();
   const initHash = useRef(true);
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
