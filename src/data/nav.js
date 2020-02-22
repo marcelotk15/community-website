@@ -1,4 +1,9 @@
-export const navLinks = [];
+export const navLinks = [
+  {
+    label: 'Articles',
+    pathname: '/articles'
+  },
+];
 
 export const socialLinks = [
   {

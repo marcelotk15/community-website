@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Intro from 'screens/Intro';
+import Articles from 'screens/Articles';
+import Footer from 'components/Footer';
 import { usePrefersReducedMotion, useRouteTransition } from 'hooks';
 
 export default function Home(props) {
@@ -11,10 +13,11 @@ export default function Home(props) {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
+  const articles = useRef();
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    const revealSections = [intro];
+    const revealSections = [intro, articles];
 
     const sectionObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -51,7 +54,7 @@ export default function Home(props) {
 
     const handleHashchange = (hash, scroll) => {
       clearTimeout(scrollTimeout);
-      const hashSections = [intro];
+      const hashSections = [intro, articles];
       const hashString = hash.replace('#', '');
       const element = hashSections.filter(item => item.current.id === hashString)[0];
       if (!element) return;
@@ -110,6 +113,12 @@ export default function Home(props) {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
+      <Articles
+        id="articles"
+        sectionRef={articles}
+        visible={visibleSections.includes(articles.current)}
+      />
+      <Footer />
     </Fragment>
   );
 }

@@ -1,6 +1,6 @@
 import React, { lazy, Fragment, Suspense, useEffect, createContext, useReducer } from 'react';
 import styled, { createGlobalStyle, ThemeProvider, css } from 'styled-components/macro';
-import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { Transition, TransitionGroup, config as transitionConfig } from 'react-transition-group';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { theme } from 'app/theme';
@@ -12,6 +12,7 @@ import { initialState, reducer } from 'app/reducer';
 import { reflow } from 'utils/transition';
 
 const Home = lazy(() => import('screens/Home'));
+const Articles = lazy(() => import('screens/Articles'));
 
 export const AppContext = createContext();
 export const TransitionContext = createContext();
@@ -98,7 +99,9 @@ function AppRoutes() {
               <AppPage status={status} >
                 <Suspense fallback={Fragment}>
                   <Switch location={location}>
-                    <Route component={Home} />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/articles" component={Articles} />
+                    <Redirect to="/" />
                   </Switch>
                 </Suspense>
               </AppPage>
