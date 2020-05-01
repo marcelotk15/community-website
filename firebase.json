@@ -3,8 +3,8 @@
     "public": "build",
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/functions/**",
+        "function": "app"
       }
     ],
     "headers": [
